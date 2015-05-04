@@ -11,6 +11,7 @@ import java.util.List;
  * @author Amanda
  */
 public interface AlunoDao extends Dao<Aluno> {
+    123
     
     void pesquisarDisciplinaAluno;
     
