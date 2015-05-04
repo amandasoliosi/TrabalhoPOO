@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author Amanda
  */
-public class AlunoDaoImp implements AlunoDao{
+public class AlunoDaoImp implements InterfaceAlunoDao{
     
     private List<Aluno> listaAluno;
     
