@@ -10,5 +10,36 @@ package trabalhopoo.model.pojo;
  * @author Amanda
  */
 public class Professor {
+    private String nome;
+    private String cpf;
+    private String departamento;
+    
+    public Professor(String nome, String cpf, String departamento){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.departamento = departamento;
+        
+    }
+    
+    //Get e Set
+    public String getNome(){
+        return nome;
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public String getCpf(){
+        return cpf;
+    }
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+    public String getDepartamento(){
+        return departamento;
+    }
+    public void setDepartamento(String departamento){
+        this.departamento = departamento;
+    }
+    
     
 }

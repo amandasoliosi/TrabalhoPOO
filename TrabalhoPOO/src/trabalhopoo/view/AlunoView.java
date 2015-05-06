@@ -6,6 +6,12 @@
 package trabalhopoo.view;
 
 import java.util.Scanner;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import trabalhopoo.model.dao.*;
+import trabalhopoo.model.pojo.Aluno;
+
 
 /**
  *
@@ -13,27 +19,48 @@ import java.util.Scanner;
  */
 public class AlunoView {
     private static Scanner entrada = new Scanner(System.in);
-	private AlunoDao alunoDao;
+    private AlunoDaoImp alunoDaoImp;
 	
-	public AlunoView (AlunoDao alunoDao){
-		this.alunoDao = alunoDao;
-	}
+    public AlunoView (AlunoDaoImp alunoDaoImp){
+        this.alunoDaoImp = alunoDaoImp;
+    }
 	
-	public static Scanner getEntrada() {
-		return entrada;
-	}
+    public static Scanner getEntrada() {
+        return entrada;
+    }
 
-	public static void setEntrada(Scanner entrada) {
-		AlunoView.entrada = entrada;
-	}
+    public static void setEntrada(Scanner entrada) {
+	AlunoView.entrada = entrada;
+    }
     
    /* Dao<Aluno> dao;
     public AlunoView(Dao,dao){
         this.dao = dao;*/
-    }
-     
  
-    public void cadastrar(){
+    public void cadastrarAluno(){
+        /*System.out.println("Digite o nome do cliente: ");
+		String nome = entrada.nextLine();
+		while (verificacoes.verificarStringVazia(nome) || verificacoes.verificarStringSoNumeros(nome)){
+			System.out.println("Nome do cliente nao aceito, digite o nome do cliente novamente: ");
+			nome = entrada.nextLine();
+		}
+		System.out.println("Digite o CPF: ");
+		String cpf = entrada.nextLine();
+		while (verificacoes.verificarCpf(cpf) == false){
+			System.out.println("CPF invalido, digite o CPF novamente: ");
+			cpf = entrada.nextLine();
+		}
+		//if (alunoDaoImp.verificar(cpf) != null){
+			System.out.println("Cliente ja estava cadastrado!");
+			return;
+		}
+		alunoDaoImp.inserir(nome, cpf);
+		System.out.println("Aluno cadastrado com sucesso!");
+		return;		
+	}*/
+
+}
+        Verificacoes verificacoes = new Verificacoes();
         System.out.println("Cadastro de alunos");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
@@ -52,7 +79,7 @@ public class AlunoView {
 		return;
 	}
         String cpf = scan.nextLine();
-        Aluno aluno = new Aluno(nome,cpf);
+        AlunoDaoImp alunoDaoImp = new AlunoDaoImp(nome,cpf);
         scan.close();
    
         dao.salvar(aluno);
