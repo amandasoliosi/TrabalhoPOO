@@ -14,7 +14,7 @@ public class Turma {
 }
 
 
-public class Aluno {
+public class Turma {
     
     private int ano;
     private int periodo;
@@ -23,7 +23,7 @@ public class Aluno {
     private int numero_de_vagas;
     
     //Construtores
-    public Aluno(int ano, int periodo, String local, String horario, int numero_de_vagas){
+    public Turma(int ano, int periodo, String local, String horario, int numero_de_vagas){
         this.ano = ano;
         this.periodo = periodo;
         this.local = local;
