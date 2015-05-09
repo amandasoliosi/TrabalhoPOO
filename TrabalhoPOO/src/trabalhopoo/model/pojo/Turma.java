@@ -9,10 +9,6 @@ package trabalhopoo.model.pojo;
  *
  * @author Klaus
  */
-public class Turma {
-    
-}
-
 
 public class Turma {
     
@@ -22,7 +18,6 @@ public class Turma {
     private String horario;
     private int numero_de_vagas;
     
-    //Construtores
     public Turma(int ano, int periodo, String local, String horario, int numero_de_vagas){
         this.ano = ano;
         this.periodo = periodo;
@@ -31,7 +26,6 @@ public class Turma {
         this.numero_de_vagas = numero_de_vagas;
     }
     
-    //Getters e Setters
     public int getAno(){
         return ano;
     }
