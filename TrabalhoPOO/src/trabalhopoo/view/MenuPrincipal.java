@@ -5,6 +5,8 @@
  */
 package trabalhopoo.view;
 
+import java.io.IOException;
+
 /**
  *
  * @author Amanda
@@ -23,4 +25,10 @@ public class MenuPrincipal {
         alunoView.listar();
      
     }
+    
+    private static void verificarOpcao(int opcao) throws IOException{
+		switch(opcao){
+		case 1: 
+                    alunoView.cadastrarAluno();
+                    break;
 }

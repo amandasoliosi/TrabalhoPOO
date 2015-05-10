@@ -72,23 +72,6 @@ public class AlunoDaoImp implements InterfaceAlunoDaoImp{
 		lista.add(aluno);
 	}
         
-        //Exclui um aluno de uma lista de alunos. 
-	/*public ArrayList<Aluno> excluir(String cpf) {
-		if (aluno == null || lista.isEmpty() == true) return lista;
-		it = lista.iterator();
-		if (lista.get(0).getCpf().equals(cpf)){
-			lista.remove(0);
-		}
-		else{
-			while (it.hasNext()){
-				if (it.next().getCpf().equals(cpf)){
-					it.remove();	
-					break;
-				}
-			}
-		}
-		return lista;	
-	}*/
         
         //Salva um aluno no arquivo ListaAluno.
         public boolean salvar(Aluno aluno) throws IOException{
@@ -115,30 +98,4 @@ public class AlunoDaoImp implements InterfaceAlunoDaoImp{
 	}
 }
 
-   /* private List<Aluno> listaAluno;
-    
-    public AlunoDaoImp(){
-        this.listaAluno = new ArrayList<Aluno>();
-        
-    }
-   
-    @Override
-    public void salvar(Aluno aluno) {
-        this.listaAluno.add(aluno);
-    }
-
-    public List<Aluno> obterTodos() {
-        return this.listaAluno;
-    }
-    
-    @Override
-    public Aluno pesquisar(Aluno aluno) {
-        return this.listaAluno.get(this.listaAluno.index0f(aluno));
-    }
-    
-    
-    
-}*/
-
-//método pra tratar arquivo deve ser privado
-//ordenar collections.sor(listaAluno());
+  

@@ -17,7 +17,6 @@ public interface InterfaceProfessorDaoImp {
     ArrayList<Professor> ler() throws IOException;
     Professor verificar (String cpf);
     void inserir (String nome, String cpf, String departamento);
-    ArrayList<Professor> excluir(String cpf);
     boolean salvar(Professor professor) throws IOException; // salva no arquivo
     boolean salvar(ArrayList<Professor> lista) throws IOException; // salva no vetor
 }

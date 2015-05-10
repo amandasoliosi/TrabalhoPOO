@@ -43,6 +43,7 @@ public class ProfessorDaoImp {
 		while (br.ready()){
 			nome = br.readLine();
 			cpf = br.readLine();
+                        departamento = br.readLine();
 			inserir(nome, cpf, departamento);
 		}
 		br.close();
@@ -66,50 +67,33 @@ public class ProfessorDaoImp {
 	return null;
     }
     public void inserir (String nome, String cpf, String departamento){//inserir os professores na lista em execução
-		professor = new Professor(nome, cpf, departamento);
-		lista.add(professor);
-	}
+	professor = new Professor(nome, cpf, departamento);
+	lista.add(professor);
+    }
         
-        //Exclui um professor de uma lista de professores. 
-	/*public ArrayList<Professor> excluir(String cpf) {
-		if (professor == null || lista.isEmpty() == true) return lista;
-		it = lista.iterator();
-		if (lista.get(0).getCpf().equals(cpf)){
-			lista.remove(0);
-		}
-		else{
-			while (it.hasNext()){
-				if (it.next().getCpf().equals(cpf)){
-					it.remove();	
-					break;
-				}
-			}
-		}
-		return lista;	
-	}*/
         
         //Salva um professor no arquivo ListaProfessor.
-        public boolean salvar(Professor professor) throws IOException{
-		if (professor == null) return false;
-		fw = new FileWriter(arquivo, true);
-		bw = new BufferedWriter (fw);
-		bw.write(professor.getNome());
-		bw.newLine();
-		bw.write(professor.getCpf());
-		bw.newLine();
-		bw.close();
-		fw.close();
-		return true;
-	}
+    public boolean salvar(Professor professor) throws IOException{
+        if (professor == null) return false;
+	fw = new FileWriter(arquivo, true);
+	bw = new BufferedWriter (fw);
+	bw.write(professor.getNome());
+	bw.newLine();
+	bw.write(professor.getCpf());
+	bw.newLine();
+	bw.close();
+	fw.close();
+	return true;
+    }
         
-        public boolean salvar(ArrayList<Professor> lista) throws IOException{//Pega os professores da lista e vai salvando no arquivo
-		if (lista.isEmpty() == true) return false;
-		fw = new FileWriter(arquivo);
-		it = lista.iterator();
-		while (it.hasNext()){
-			salvar(it.next());
-		}
-		return true;
+    public boolean salvar(ArrayList<Professor> lista) throws IOException{//Pega os professores da lista e vai salvando no arquivo
+	if (lista.isEmpty() == true) return false;
+	fw = new FileWriter(arquivo);
+	it = lista.iterator();
+	while (it.hasNext()){
+		salvar(it.next());
 	}
+	return true;
+    }
     
 }

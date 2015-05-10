@@ -17,10 +17,7 @@ public interface InterfaceAlunoDaoImp {
     ArrayList<Aluno> ler() throws IOException;
     Aluno verificar (String cpf);
     void inserir (String nome, String cpf);
-    //ArrayList<Aluno> excluir(String cpf);
     boolean salvar(Aluno aluno) throws IOException; // salva no arquivo
     boolean salvar(ArrayList<Aluno> lista) throws IOException; // salva no vetor	
 }
    
-
-//Fazer interface genérica(dao) usar InterfaceAlunoDaoImp ou só o Dao

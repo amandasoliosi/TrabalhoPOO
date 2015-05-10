@@ -6,7 +6,6 @@
 package trabalhopoo.view;
 
 import java.util.Scanner;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import trabalhopoo.model.dao.*;
@@ -33,48 +32,23 @@ public class AlunoView {
 	AlunoView.entrada = entrada;
     }
     
-   /* Dao<Aluno> dao;
-    public AlunoView(Dao,dao){
-        this.dao = dao;*/
- 
-    public void cadastrarAluno(){
-        /*System.out.println("Digite o nome do cliente: ");
-		String nome = entrada.nextLine();
-		while (verificacoes.verificarStringVazia(nome) || verificacoes.verificarStringSoNumeros(nome)){
-			System.out.println("Nome do cliente nao aceito, digite o nome do cliente novamente: ");
-			nome = entrada.nextLine();
-		}
-		System.out.println("Digite o CPF: ");
-		String cpf = entrada.nextLine();
-		while (verificacoes.verificarCpf(cpf) == false){
-			System.out.println("CPF invalido, digite o CPF novamente: ");
-			cpf = entrada.nextLine();
-		}
-		//if (alunoDaoImp.verificar(cpf) != null){
-			System.out.println("Cliente ja estava cadastrado!");
-			return;
-		}
-		alunoDaoImp.inserir(nome, cpf);
-		System.out.println("Aluno cadastrado com sucesso!");
-		return;		
-	}*/
 
-}
-        Verificacoes verificacoes = new Verificacoes();
+    public void cadastrarAluno(){
+        Verificacao verificacao = new Verificacao();
         System.out.println("Cadastro de alunos");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
-	while (verificacoes.verificarStringVazia(nome) || verificacoes.verificarStringSoNumeros(nome)){
+	while (verificacao.verificarStringVazia(nome) || verificacao.verificarStringSoNumeros(nome)){
 		System.out.println("Nome do aluno nao aceito, digite o nome do aluno novamente: ");
 		nome = entrada.nextLine();
 	}
         System.out.println("Digite o CPF: ");
 	String cpf = entrada.nextLine();
-	while (verificacoes.verificarCpf(cpf) == false){
+	while (verificacao.verificarCpf(cpf) == false){
             System.out.println("CPF invalido, digite o CPF novamente: ");
 		cpf = entrada.nextLine();
 	}
-	if (AlunoDao.verificar(cpf) != null){
+	if (AlunoDaoImp.verificar(cpf) != null){
 		System.out.println("Aluno ja estava cadastrado!");
 		return;
 	}
@@ -85,15 +59,19 @@ public class AlunoView {
         dao.salvar(aluno);
     }
     
-    public void listar(){
-
-        List<Aluno> listaAluno = dao.obterTodos();
-        
-        for(Aluno aluno : listaAluno){
-            System.out.println(aluno.getNome()+ " " + aluno.getCpf());
-        }
-        
+    public void listarAluno() {
+		Iterator<Aluno> it;
+		ArrayList<Aluno>listar = alunoDaoImp.getLista(); 
+		if (listar.isEmpty() == true) return;
+		it = listar.iterator();
+		while (it.hasNext()) {  
+			Aluno aux = it.next();  
+			System.out.println("Nome:"+aux.getNome());
+			System.out.println("CPF:"+aux.getCpf());
+		}
+		return;
     }
+    
     public void pesquisar(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Informe o cpf:");
