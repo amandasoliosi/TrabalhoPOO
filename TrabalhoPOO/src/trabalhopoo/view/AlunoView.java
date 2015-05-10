@@ -52,11 +52,9 @@ public class AlunoView {
 		System.out.println("Aluno ja estava cadastrado!");
 		return;
 	}
-        String cpf = scan.nextLine();
-        AlunoDaoImp alunoDaoImp = new AlunoDaoImp(nome,cpf);
-        scan.close();
-   
-        dao.salvar(aluno);
+        alunoDaoImp.inserir(nome, cpf);
+	return;	
+        dao.salvar(alunoDaoImp);
     }
     
     public void listarAluno() {
