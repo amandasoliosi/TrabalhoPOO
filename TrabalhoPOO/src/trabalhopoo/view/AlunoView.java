@@ -6,11 +6,6 @@
 package trabalhopoo.view;
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Iterator;
-import trabalhopoo.model.dao.*;
-import trabalhopoo.model.pojo.Aluno;
-
 
 /**
  *
@@ -18,58 +13,60 @@ import trabalhopoo.model.pojo.Aluno;
  */
 public class AlunoView {
     private static Scanner entrada = new Scanner(System.in);
-    private AlunoDaoImp alunoDaoImp;
+	private AlunoDao alunoDao;
 	
-    public AlunoView (AlunoDaoImp alunoDaoImp){
-        this.alunoDaoImp = alunoDaoImp;
-    }
+	public AlunoView (AlunoDao alunoDao){
+		this.alunoDao = alunoDao;
+	}
 	
-    public static Scanner getEntrada() {
-        return entrada;
-    }
+	public static Scanner getEntrada() {
+		return entrada;
+	}
 
-    public static void setEntrada(Scanner entrada) {
-	AlunoView.entrada = entrada;
-    }
+	public static void setEntrada(Scanner entrada) {
+		AlunoView.entrada = entrada;
+	}
     
-
-    public void cadastrarAluno(){
-        Verificacao verificacao = new Verificacao();
+   /* Dao<Aluno> dao;
+    public AlunoView(Dao,dao){
+        this.dao = dao;*/
+    }
+     
+ 
+    public void cadastrar(){
         System.out.println("Cadastro de alunos");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
-	while (verificacao.verificarStringVazia(nome) || verificacao.verificarStringSoNumeros(nome)){
+	while (verificacoes.verificarStringVazia(nome) || verificacoes.verificarStringSoNumeros(nome)){
 		System.out.println("Nome do aluno nao aceito, digite o nome do aluno novamente: ");
 		nome = entrada.nextLine();
 	}
         System.out.println("Digite o CPF: ");
 	String cpf = entrada.nextLine();
-	while (verificacao.verificarCpf(cpf) == false){
+	while (verificacoes.verificarCpf(cpf) == false){
             System.out.println("CPF invalido, digite o CPF novamente: ");
 		cpf = entrada.nextLine();
 	}
-	if (AlunoDaoImp.verificar(cpf) != null){
+	if (AlunoDao.verificar(cpf) != null){
 		System.out.println("Aluno ja estava cadastrado!");
 		return;
 	}
-        alunoDaoImp.inserir(nome, cpf);
-	return;	
-        dao.salvar(alunoDaoImp);
+        String cpf = scan.nextLine();
+        Aluno aluno = new Aluno(nome,cpf);
+        scan.close();
+   
+        dao.salvar(aluno);
     }
     
-    public void listarAluno() {
-		Iterator<Aluno> it;
-		ArrayList<Aluno>listar = alunoDaoImp.getLista(); 
-		if (listar.isEmpty() == true) return;
-		it = listar.iterator();
-		while (it.hasNext()) {  
-			Aluno aux = it.next();  
-			System.out.println("Nome:"+aux.getNome());
-			System.out.println("CPF:"+aux.getCpf());
-		}
-		return;
+    public void listar(){
+
+        List<Aluno> listaAluno = dao.obterTodos();
+        
+        for(Aluno aluno : listaAluno){
+            System.out.println(aluno.getNome()+ " " + aluno.getCpf());
+        }
+        
     }
-    
     public void pesquisar(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Informe o cpf:");

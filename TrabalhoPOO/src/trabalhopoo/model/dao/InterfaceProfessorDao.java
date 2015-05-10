@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhopoo.model.pojo;
+package trabalhopoo.model.dao;
 
 /**
  *
  * @author Amanda
  */
-public class Professor {
+public class InterfaceProfessorDao {
     
 }

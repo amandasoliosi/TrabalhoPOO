@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhopoo.model.pojo;
+package trabalhopoo.model.dao;
 
+import java.util.List;
 /**
  *
  * @author Amanda
  */
-public class Professor {
+public interface AlunoDao extends Dao<Aluno> {
+    
+    void pesquisarDisciplinaAluno;
     
 }
+
+//Fazer interface genérica(dao) usar AlunoDao ou só o Dao
