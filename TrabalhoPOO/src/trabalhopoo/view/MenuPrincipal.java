@@ -7,6 +7,8 @@ package trabalhopoo.view;
 
 import java.io.IOException;
 import java.util.Scanner;
+import trabalhopoo.model.dao.*;
+
 
 /**
  *
@@ -22,39 +24,41 @@ public class MenuPrincipal {
     static ProfessorDaoImp professorDaoImp = new ProfessorDaoImp();
     static TurmaDaoImp turmaDaoImp = new TurmaDaoImp();
 	
-    static ClienteView clienteView = new ClienteView(clienteDao);
-    static FornecedorView fornecedorView = new FornecedorView(fornecedorDao);
-    static ItemView itemView = new ItemView (itemDao, fornecedorDao);
-    static PedidoView pedidoView = new PedidoView(clienteDao, pedidoDao, itemDao, fornecedorDao);
-	
+    static AlunoView alunoView = new AlunoView(alunoDaoImp);
+    static ProfessorView professorView = new ProfessorView(professorDaoImp);
+    static AtividadeView atividadeView = new AtividadeView(itemDao, fornecedorDao);
+    static DisciplinaView disciplinaView = new DisiciplinaView(clienteDao, pedidoDao, itemDao, fornecedorDao);
+    static TurmaView turmaView = new TurmaView();
+    
 	public static Scanner getEntrada() {
 		return entrada;
 	}
 
 	public static void setEntrada(Scanner entrada) {
-		Main.entrada = entrada;
+		MenuPrincipal.entrada = entrada;
 	}
 	
 	public static void main(String[] args) throws IOException{
 		int opcao = 0;
-		clienteDao.ler();
-		fornecedorDao.ler();
-		itemDao.ler();
-		pedidoDao.ler();
+		alunoDaoImp.ler();
+		atividadeDaoImp.ler();
+		professorDaoImp.ler();
+		disciplinaDaoImp.ler();
+                turmaDaoImp.ler();
 		
 		do{
 			System.out.println("Escolha a opcao desejada:");
-			System.out.println("1- Cadastrar cliente");
-			System.out.println("2- Cadastrar fornecedor");
-			System.out.println("3- Cadastrar itens");
-			System.out.println("4- Cadastrar pedido");
-			System.out.println("5- Consultar dados de um item pelo nome");
-			System.out.println("6- Consultar preco de um item pelo codigo");
-			System.out.println("7- Listar clientes");
-			System.out.println("8- Listar fornecedores");
-			System.out.println("9- Listar pedidos em aberto");
-			System.out.println("10- Situacao estoque produto");
-			System.out.println("11- Resumo do estoque");
+			System.out.println("1- Cadastrar aluno");
+			System.out.println("2- Cadastrar professor");
+			System.out.println("3- Cadastrar atividade");
+			System.out.println("4- Cadastrar turma");
+			System.out.println("5- Cadastrar disciplina");
+			System.out.println("6- Lançar notas");
+			System.out.println("7- Lançar faltas");
+			System.out.println("8- Consultar turmas");
+			System.out.println("9- Consultar situação do aluno em uma determinada disciplina");
+			System.out.println("10- Consultar numero de turmas ja oferecidas para uma determinada disciplina");
+			System.out.println("11- Consultar o numero de disciplina ja lecionadas por um determinado professor");
 			System.out.println("12- Sair");
 			
 			opcao = entrada.nextInt();
@@ -66,38 +70,26 @@ public class MenuPrincipal {
 	private static void verificarOpcao(int opcao) throws IOException{
 		switch(opcao){
 		case 1: 
-			clienteView.cadastrarCliente();
+			alunoView.cadastrarAluno();
 			break;
 		
 		case 2:
-			fornecedorView.cadastrarFornecedor();
+			professorView.cadastrarProfessor();
 			break;
 		
 		case 3:
-			itemView.cadastrarItem();
+			atividadeView.cadastrarAtividade();
 			break;
 
 		case 4:
-			pedidoView.cadastrarPedido();
+			turmaView.cadastrarTurma();
 			break;
-
-		case 5:
-			System.out.println("Digite o codigo do Item: ");
-			long codigo = entrada.nextLong();
-			Item aux = itemDao.verificar(codigo);
-			if(aux == null){
-				System.out.println("Item nao cadastrado!");
-			}
-			else{
-				System.out.println("Nome: "+ aux.getNome());
-				System.out.println("Margem de Lucro: "+aux.getMargemLucro());
-				System.out.println("Preco de Custo: "+aux.getPrecoCusto());
-				System.out.println("Quantidade no Estoque: "+aux.getQuantEstoque());
-				System.out.println("Fornecedor: "+aux.getFornecedor().get(0).getNome());
-			}
-			break;
+                    
+                case 5:
+                        disciplinaView.cadastrarDisciplina();
+                        break;
 	
-		case 6:
+		/*case 6:
 			System.out.println("Digite o codigo do Item: ");
 			long codigo2 = entrada.nextLong();
 			Item aux2 = itemDao.verificar(codigo2);
@@ -159,11 +151,5 @@ public class MenuPrincipal {
         alunoView.pesquisar();
         alunoView.listar();
      
-    }
-    
-    private static void verificarOpcao(int opcao) throws IOException{
-		switch(opcao){
-		case 1: 
-                    alunoView.cadastrarAluno();
-                    break;
+    }*/
 }
