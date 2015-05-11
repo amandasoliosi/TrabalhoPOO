@@ -31,33 +31,34 @@ public class DisciplinaView {
 	
     public long cadastrarDisciplina() throws IOException{
 		//Verificacoes
-		Verificacao verificacoes = new Verificacao();
-                System.out.println("Cadastro de Disciplina");
-		System.out.println("Digite o nome da Disciplina: ");
-		String nome = entrada.nextLine();
-		while (verificacoes.verificarStringVazia(nome)){
-			System.out.println("Nome da disciplina nao aceita, digite novamente o nome da Disciplina: ");
-			nome = entrada.nextLine();
-		}	
-		if (disciplinaDaoImp.verificar(nome) != null){
-                    System.out.println("Disciplina ja esta cadastrada!");
-                    return;
-		}
-		System.out.println("Digite a ementa da Disciplina: ");
-		String ementa = entrada.nextLine();
-		while (verificacoes.verificarStringVazia(ementa)){
-			System.out.println("Ementa nao aceita, digite novamente: ");
-			ementa = entrada.nextLine();
-		}
-		System.out.println("Digite a carga horária da Disciplina: ");
-		String cargaHoraria = entrada.nextLine();
-                while (verificacoes.verificarStringVazia(cargaHoraria)){
-			System.out.println("Carga horaria nao aceita, digite novamente: ");
-			cargaHoraria = entrada.nextLine();
-		}
+	Verificacao verificacoes = new Verificacao();
+        System.out.println("Cadastro de Disciplina");
+        System.out.println("Digite o nome da Disciplina: ");
+	String nome = entrada.nextLine();
+	while (verificacoes.verificarStringVazia(nome)|| verificacoes.verificarStringSoNumeros(nome)){
+		System.out.println("Nome da disciplina nao aceita, digite novamente o nome da Disciplina: ");
+		nome = entrada.nextLine();
+	}	
+	if (disciplinaDaoImp.verificar(nome) != null){
+            System.out.println("Disciplina ja esta cadastrada!");
+            return;
+	}
+	System.out.println("Digite a ementa da Disciplina: ");
+	String ementa = entrada.nextLine();
+	while (verificacoes.verificarStringVazia(ementa)|| verificacoes.verificarStringSoNumeros(ementa)){
+                System.out.println("Ementa nao aceita, digite novamente: ");
+		ementa = entrada.nextLine();
+	}
+	System.out.println("Digite a carga horária da Disciplina: ");
+	String cargaHoraria = entrada.nextLine();
+            while (verificacoes.verificarStringVazia(cargaHoraria)){
+                System.out.println("Carga horaria nao aceita, digite novamente: ");
+		cargaHoraria = entrada.nextLine();
+            }
 	disciplinaDaoImp.inserir(nome, ementa, cargaHoraria);
         System.out.println("Disciplina casdrada com sucesso!");
-	return;	
+	return;
+        
 	}
         public void listarDisciplina() {
 		Iterator<Disciplina> it;
