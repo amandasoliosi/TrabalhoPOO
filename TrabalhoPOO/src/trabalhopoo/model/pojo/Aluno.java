@@ -31,8 +31,4 @@ public class Aluno {
     public void setCpf(String cpf){
         this.cpf = cpf;
     }
-    
-    public boolean (equals){
-   
-    
 }
