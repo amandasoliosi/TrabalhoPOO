@@ -18,9 +18,10 @@ import trabalhopoo.model.pojo.Aluno;
  *
  * @author Amanda
  */
-public class AlunoDaoImp{
-    
-    private File arquivo = new File("ListaAluno.txt");
+
+//implementação da interface
+public class AlunoDaoImp implements InterfaceAlunoDaoImp{
+        private File arquivo = new File("ListaAluno.txt");
 	private ArrayList<Aluno> lista = new ArrayList<Aluno>();
 	private String nome;
 	private String cpf;
@@ -48,6 +49,30 @@ public class AlunoDaoImp{
 		fr.close();
 		return lista; 
 	}
+        
+        public ArrayList<Aluno> getLista() {
+		return lista;
+	}
+        
+        public Aluno verificar (String cpf){//verifica se o cpf ta salvo na lista de alunos
+		if (lista.isEmpty() == true) return null;
+	 
+		it = lista.iterator(); 
+		while (it.hasNext()) {  
+			Aluno aux = it.next();  
+		    if (aux.getCpf().equals(cpf)){  
+		        return aux;
+		   }  
+		}
+		return null;
+	}
+        
+        public void inserir (String nome, String cpf){//inserir os alunos na lista em execução
+		aluno = new Aluno(nome, cpf);
+		lista.add(aluno);
+	}
+        
+        
         //Salva um aluno no arquivo ListaAluno.
         public boolean salvar(Aluno aluno) throws IOException{
 		if (aluno == null) return false;
@@ -62,41 +87,6 @@ public class AlunoDaoImp{
 		return true;
 	}
         
-        public ArrayList<Aluno> getLista() {
-		return lista;
-        
-        }
-        
-        public Aluno verificar (String cpf){//verifica se o cpf ta salvo na lista de alunos
-		if (lista.isEmpty() == true) return null;
-		it = lista.iterator(); 
-		while (it.hasNext()) {  
-                    Aluno aux = it.next();  
-		    if (aux.getCpf().equals(cpf)){  
-		        return aux;
-		   }  
-		}
-		return null;
-	}
-        
-        public void inserir (String nome, String cpf){//inserir os professores na lista em execução
-            aluno = new Aluno(nome, cpf);
-            lista.add(aluno);
-        }
-        
-        public boolean salvar(Aluno aluno) throws IOException{
-        if (aluno == null) return false;
-	fw = new FileWriter(arquivo, true);
-	bw = new BufferedWriter (fw);
-	bw.write(aluno.getNome());
-	bw.newLine();
-	bw.write(aluno.getCpf());
-	bw.newLine();
-	bw.close();
-	fw.close();
-	return true;
-    }
-    
         public boolean salvar(ArrayList<Aluno> lista) throws IOException{//Pega os alunos da lista e vai salvando no arquivo
 		if (lista.isEmpty() == true) return false;
 		fw = new FileWriter(arquivo);
@@ -104,7 +94,8 @@ public class AlunoDaoImp{
 		while (it.hasNext()){
 			salvar(it.next());
 		}
-	return true;
-        }
-                
+		return true;
+	}
 }
+
+  

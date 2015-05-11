@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package trabalhopoo.view;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.ProfessorDaoImp;
 import trabalhopoo.model.dao.Verificacao;
 import trabalhopoo.model.pojo.Professor;
+
 /**
  *
  * @author Amanda
  */
 public class ProfessorView {
-    
     private static Scanner entrada = new Scanner(System.in);
     private ProfessorDaoImp professorDaoImp;
 	
@@ -81,7 +82,5 @@ public class ProfessorView {
         System.out.println("Informe o cpf:");
         
     }
-    
-
     
 }
