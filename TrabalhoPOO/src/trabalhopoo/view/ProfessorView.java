@@ -5,6 +5,7 @@
  */
 package trabalhopoo.view;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -12,11 +13,14 @@ import trabalhopoo.model.dao.ProfessorDaoImp;
 import trabalhopoo.model.dao.Verificacao;
 import trabalhopoo.model.pojo.Professor;
 
+=======
+>>>>>>> parent of 431350f... ParteAmanda3
 /**
  *
  * @author Amanda
  */
 public class ProfessorView {
+<<<<<<< HEAD
     private static Scanner entrada = new Scanner(System.in);
     private ProfessorDaoImp professorDaoImp;
 	
@@ -82,5 +86,7 @@ public class ProfessorView {
         System.out.println("Informe o cpf:");
         
     }
+=======
+>>>>>>> parent of 431350f... ParteAmanda3
     
 }

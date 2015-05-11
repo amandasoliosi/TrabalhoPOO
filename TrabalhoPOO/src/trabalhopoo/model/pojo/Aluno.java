@@ -34,4 +34,10 @@ public class Aluno {
         this.cpf = cpf;
     }
     
+<<<<<<< HEAD
+=======
+    public boolean (equals){
+   
+    
+>>>>>>> parent of 431350f... ParteAmanda3
 }
