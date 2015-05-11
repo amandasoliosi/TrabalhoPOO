@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-import trabalhopoo.model.dao.*;
+import trabalhopoo.model.dao.Verificacao;
+import trabalhopoo.model.dao.DisciplinaDaoImp;
 import trabalhopoo.model.pojo.Disciplina;
 
 public class DisciplinaView {
@@ -29,19 +30,19 @@ public class DisciplinaView {
 	DisciplinaView.entrada = entrada;
     }
 	
-    public long cadastrarDisciplina() throws IOException{
+    public void cadastrarDisciplina() throws IOException{
 		//Verificacoes
-		Verificacoes verificacoes = new Verificacoes();
+		Verificacao verificacoes = new Verificacao();
 		System.out.println("Digite o nome da Disciplina: ");
 		String nome = entrada.nextLine();
 		while (verificacoes.verificarStringVazia(nome)){
 			System.out.println("Nome da disciplina nao aceita, digite novamente o nome da Disciplina: ");
 			nome = entrada.nextLine();
 		}	
-		if (disciplinaDaoImp.verificar(nome) != null){
+	/*	if (disciplinaDaoImp.verificar(nome) != null){
 			System.out.println("Disciplina ja esta cadastrada!");
 			return(disciplinaDaoImp.verificar(nome));
-		}
+		}*/
 		System.out.println("Digite a ementa da Disciplina: ");
 		String ementa = entrada.nextLine();
 		while (verificacoes.verificarStringVazia(ementa)){
@@ -54,8 +55,9 @@ public class DisciplinaView {
 			System.out.println("Carga horaria nao aceita, digite novamente: ");
 			cargaHoraria = entrada.nextLine();
 		}
-	
-	}
+                disciplinaDaoImp.inserir(nome,ementa,cargaHoraria);
+                return;
+    }
 
 }
 	

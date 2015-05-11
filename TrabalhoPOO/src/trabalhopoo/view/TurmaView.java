@@ -49,37 +49,41 @@ public class TurmaView {
 	}*/
         System.out.println("Digite o local: ");
         String local = entrada.nextLine();
-/*      while(){
+/*      while(){                            Implemetar verificação
                 System.out.println("Local inválido, digite-o novamente: ");
 		local = entrada.nextLine();
         */    
         System.out.println("Digite o horário: ");
         String horario = entrada.nextLine();
-/*      while(){
+/*      while(){                            Implemetar verificação
                 System.out.println("Horario de turma não aceito, digite o 
                                     horario novamente: ");
 		horario = entrada.nextLine();
         */
         System.out.println("Digite o numero de vagas disponíveis: ");
         int numero_de_vagas = entrada.nextInt();
-/*      while(){
+/*      while(){                            Implemetar verificação
                 System.out.println("Quandtidade de número de vagas incorreta, 
                                     digite mais uma vez: ");
 		numero_de_vagas = entrada.nexInt();
         */     
         turmaDaoImp.inserir(ano, periodo, local, horario, numero_de_vagas);
 	return;	
-        dao.salvar(turmaDaoImp);
     }
     
-    public void listar(){
-
-        List<Turma> listaTurma = dao.obterTodos();
-        
-        for(Turma turma : listaTurma){
-            System.out.println(turma.getAno()+ " " + turma.getPeriodo()+ " " + turma.getLocal()+ " " 
-                                + turma.getHorario()+ " " + turma.getNumero_de_vagas());
-        }
-        
+      public void listarAtividades() {
+		Iterator<Turma> it;
+		ArrayList<Turma>listar = turmaDaoImp.getLista(); 
+		if (listar.isEmpty() == true) return;
+		it = listar.iterator();
+		while (it.hasNext()) {  
+			Turma aux = it.next();  
+			System.out.println("Ano:"+aux.getAno());
+			System.out.println("Periodo:"+aux.getPeriodo());
+                        System.out.println("Local:"+aux.getLocal());
+                        System.out.println("Horario:"+aux.getHorario());
+                        System.out.println("Numero de vagas:"+aux.getNumero_de_vagas());
+		}
+		return;
     }
 }

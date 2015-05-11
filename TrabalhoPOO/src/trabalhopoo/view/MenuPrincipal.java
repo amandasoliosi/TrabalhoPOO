@@ -5,7 +5,18 @@
  */
 import java.io.IOException;
 import java.util.Scanner;
-import trabalhopoo.model.dao.*;
+import trabalhopoo.model.dao.AlunoDaoImp;
+import trabalhopoo.model.dao.AtividadeDaoImp;
+import trabalhopoo.model.dao.DisciplinaDaoImp;
+import trabalhopoo.model.dao.TurmaDaoImp;
+import trabalhopoo.model.dao.ProfessorDaoImp;
+import trabalhopoo.view.AlunoView;
+import trabalhopoo.view.AtividadeView;
+import trabalhopoo.view.DisciplinaView;
+import trabalhopoo.view.TurmaView;
+import trabalhopoo.view.ProfessorView;
+import trabalhopoo.view.NotaView;
+import trabalhopoo.view.FaltaView;
 
 /**
  *
@@ -18,15 +29,15 @@ public class MenuPrincipal {
     
     static AlunoDaoImp alunoDaoImp = new AlunoDaoImp();
     static AtividadeDaoImp atividadeDaoImp = new AtividadeDaoImp();
-    static DisciplinaDaoImp disciplinaDaoImp = new DisciplinaDaoImp(fornecedorDao);
+    static DisciplinaDaoImp disciplinaDaoImp = new DisciplinaDaoImp();
     static ProfessorDaoImp professorDaoImp = new ProfessorDaoImp();
     static TurmaDaoImp turmaDaoImp = new TurmaDaoImp();
 	
     static AlunoView alunoView = new AlunoView(alunoDaoImp);
     static ProfessorView professorView = new ProfessorView(professorDaoImp);
-    static AtividadeView atividadeView = new AtividadeView(itemDao, fornecedorDao);
-    static DisciplinaView disciplinaView = new DisiciplinaView(clienteDao, pedidoDao, itemDao, fornecedorDao);
-    static TurmaView turmaView = new TurmaView();
+    static AtividadeView atividadeView = new AtividadeView(atividadeDaoImp);
+    static DisciplinaView disciplinaView = new DisciplinaView(disciplinaDaoImp);
+    static TurmaView turmaView = new TurmaView(turmaDaoImp);
     
 	public static Scanner getEntrada() {
 		return entrada;
@@ -86,7 +97,7 @@ public class MenuPrincipal {
                 case 5:
                         disciplinaView.cadastrarDisciplina();
                         break;
-	
+                }
 		/*case 6:
 			System.out.println("Digite o codigo do Item: ");
 			long codigo2 = entrada.nextLong();
@@ -135,7 +146,7 @@ public class MenuPrincipal {
 			//pedidoDao.salvar(pedidoDao.getLista());
 			System.exit(0);
 			break;
-			
+			*/
 		}
     
    
