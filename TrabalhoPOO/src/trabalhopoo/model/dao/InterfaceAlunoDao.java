@@ -3,17 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhopoo.model.dao;
 
-import java.util.List;
+package trabalhopoo.model.dao;
+import java.io.IOException;
+import java.util.ArrayList;
+import trabalhopoo.model.pojo.Aluno;
 /**
  *
  * @author Amanda
  */
-public interface InterfaceAlunoDao extends Dao<Aluno> {
+public interface InterfaceAlunoDaoImp {
+  
     
-    void pesquisarDisciplinaAluno;
+   ArrayList<Aluno> ler() throws IOException;
+   Aluno verificar (String cpf);
+   void inserir (String nome, String cpf);
+   boolean salvar(Aluno aluno) throws IOException; // salva no arquivo
+   boolean salvar(ArrayList<Aluno> lista) throws IOException; // salva no vetor
     
 }
-
-//Fazer interface genérica(dao) usar InterfaceAlunoDao ou só o Dao

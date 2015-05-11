@@ -10,7 +10,7 @@ package trabalhopoo.model.pojo;
  * @author Amanda
  */
 public class Professor {
-<<<<<<< HEAD
+    
     private String nome;
     private String cpf;
     private String departamento;
@@ -41,8 +41,5 @@ public class Professor {
     public void setDepartamento(String departamento){
         this.departamento = departamento;
     }
-    
-=======
->>>>>>> parent of 431350f... ParteAmanda3
-    
 }
+    

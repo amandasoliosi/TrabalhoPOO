@@ -12,9 +12,9 @@ package trabalhopoo.model.pojo;
 public class Disciplina {
     private String nome;
     private String ementa;
-    private int cargaHoraria;
+    private String cargaHoraria;
 
-    public Disciplina(String nome, String ementa, int cargaHoraria) {
+    public Disciplina(String nome, String ementa, String cargaHoraria) {
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
@@ -51,14 +51,14 @@ public class Disciplina {
     /**
      * @return the cargaHoraria
      */
-    public int getCargaHoraria() {
+    public String getCargaHoraria() {
         return cargaHoraria;
     }
 
     /**
      * @param cargaHoraria the cargaHoraria to set
      */
-    public void setCargaHoraria(int cargaHoraria) {
+    public void setCargaHoraria(String cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 }

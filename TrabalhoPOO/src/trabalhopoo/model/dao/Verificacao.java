@@ -11,6 +11,7 @@ import java.util.Iterator;
  * @author Amanda
  */
 public class Verificacao {
+    
     public boolean verificarStringVazia(String string){
 		if (string.isEmpty() || string.equals("")) return true;
 		else return false;
@@ -79,5 +80,6 @@ public class Verificacao {
         return nDigVerific.equals(nDigResult);  
     }  
 
+    
 }
 

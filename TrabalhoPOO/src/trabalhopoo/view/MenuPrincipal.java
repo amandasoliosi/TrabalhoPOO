@@ -3,23 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabalhopoo.view;
-
-<<<<<<< HEAD
 import java.io.IOException;
 import java.util.Scanner;
 import trabalhopoo.model.dao.*;
 
-
-=======
->>>>>>> parent of 431350f... ParteAmanda3
 /**
  *
  * @author Amanda
  */
 
 public class MenuPrincipal {
-<<<<<<< HEAD
+    
     private static Scanner entrada = new Scanner(System.in);
     
     static AlunoDaoImp alunoDaoImp = new AlunoDaoImp();
@@ -143,26 +137,6 @@ public class MenuPrincipal {
 			break;
 			
 		}
-	}
     
-    public static void main(String[] args){
-        Dao<Aluno>dao = new AlunoDaoImp();
-=======
-    
-    public static void main(String[] args){
-        Dao<Aluno> dao = new AlunoDaoImp();
->>>>>>> parent of 431350f... ParteAmanda3
-        AlunoView alunoView = new AlunoView(daoAluno);
-        System.out.println("Sistema");
-        alunoView.cadastrar();
-        
-        alunoView.cadastrar();
-        alunoView.pesquisar();
-        alunoView.listar();
-     
-<<<<<<< HEAD
-    }*/
-=======
-    }
->>>>>>> parent of 431350f... ParteAmanda3
+   
 }

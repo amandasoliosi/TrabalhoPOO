@@ -16,7 +16,6 @@ public interface InterfaceDisciplinaDao{
     ArrayList<Disciplina> ler() throws IOException;
     Disciplina verificar (String nome);
     void inserir (String nome, String ementa, int cargaHoraria);
-    ArrayList<Disciplina> excluir(String nome);
     boolean salvar(Disciplina dsciplina) throws IOException; // salva no arquivo
     boolean salvar(ArrayList<Disciplina> lista) throws IOException; // salva no vetor	
 }

@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package trabalhopoo.model.dao;
-<<<<<<< HEAD
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,15 +13,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import trabalhopoo.model.pojo.Professor;
-=======
->>>>>>> parent of 431350f... ParteAmanda3
 
 /**
  *
  * @author Amanda
  */
 public class ProfessorDaoImp {
-<<<<<<< HEAD
+    
     private File arquivo = new File("ListaProfessor.txt");
     private ArrayList<Professor> lista = new ArrayList<Professor>();
     private String nome;
@@ -85,6 +81,8 @@ public class ProfessorDaoImp {
 	bw.newLine();
 	bw.write(professor.getCpf());
 	bw.newLine();
+        bw.write(professor.getDepartamento());
+        bw.newLine();
 	bw.close();
 	fw.close();
 	return true;
@@ -99,7 +97,4 @@ public class ProfessorDaoImp {
 	}
 	return true;
     }
-=======
->>>>>>> parent of 431350f... ParteAmanda3
-    
 }
