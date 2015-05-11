@@ -31,7 +31,8 @@ public class DisciplinaView {
 	
     public long cadastrarDisciplina() throws IOException{
 		//Verificacoes
-		Verificacoes verificacoes = new Verificacoes();
+		Verificacao verificacoes = new Verificacao();
+                System.out.println("Cadastro de Disciplina");
 		System.out.println("Digite o nome da Disciplina: ");
 		String nome = entrada.nextLine();
 		while (verificacoes.verificarStringVazia(nome)){
@@ -39,8 +40,8 @@ public class DisciplinaView {
 			nome = entrada.nextLine();
 		}	
 		if (disciplinaDaoImp.verificar(nome) != null){
-			System.out.println("Disciplina ja esta cadastrada!");
-			return(disciplinaDaoImp.verificar(nome));
+                    System.out.println("Disciplina ja esta cadastrada!");
+                    return;
 		}
 		System.out.println("Digite a ementa da Disciplina: ");
 		String ementa = entrada.nextLine();
@@ -54,8 +55,24 @@ public class DisciplinaView {
 			System.out.println("Carga horaria nao aceita, digite novamente: ");
 			cargaHoraria = entrada.nextLine();
 		}
-	
+	disciplinaDaoImp.inserir(nome, ementa, cargaHoraria);
+        System.out.println("Disciplina casdrada com sucesso!");
+	return;	
 	}
+        public void listarDisciplina() {
+		Iterator<Disciplina> it;
+		ArrayList<Disciplina>listar = disciplinaDaoImp.getLista(); 
+		if (listar.isEmpty() == true) return;
+		it = listar.iterator();
+		while (it.hasNext()) {  
+			Disciplina aux = it.next();  
+			System.out.println("Nome:"+aux.getNome());
+			System.out.println("Ementa"+aux.getEmenta());
+                        System.out.println("Carga Horaria"+aux.getCargaHoraria());
+		}
+		return;
+    }
+
 
 }
 	

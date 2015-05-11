@@ -62,7 +62,7 @@ public class ProfessorView {
 	return;	
     }
        
-    public void listarAluno() {
+    public void listarProfessor() {
 		Iterator<Professor> it;
 		ArrayList<Professor>listar = professorDaoImp.getLista(); 
 		if (listar.isEmpty() == true) return;
@@ -75,9 +75,5 @@ public class ProfessorView {
 		return;
     }
     
-    public void pesquisar(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Informe o cpf:");
-        
-    }
+
 }

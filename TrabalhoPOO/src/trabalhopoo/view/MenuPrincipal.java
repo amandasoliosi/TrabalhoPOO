@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package trabalhopoo.view;
 import java.io.IOException;
 import java.util.Scanner;
 import trabalhopoo.model.dao.*;
@@ -18,15 +19,15 @@ public class MenuPrincipal {
     
     static AlunoDaoImp alunoDaoImp = new AlunoDaoImp();
     static AtividadeDaoImp atividadeDaoImp = new AtividadeDaoImp();
-    static DisciplinaDaoImp disciplinaDaoImp = new DisciplinaDaoImp(fornecedorDao);
+    static DisciplinaDaoImp disciplinaDaoImp = new DisciplinaDaoImp();
     static ProfessorDaoImp professorDaoImp = new ProfessorDaoImp();
     static TurmaDaoImp turmaDaoImp = new TurmaDaoImp();
 	
     static AlunoView alunoView = new AlunoView(alunoDaoImp);
     static ProfessorView professorView = new ProfessorView(professorDaoImp);
-    static AtividadeView atividadeView = new AtividadeView(itemDao, fornecedorDao);
-    static DisciplinaView disciplinaView = new DisiciplinaView(clienteDao, pedidoDao, itemDao, fornecedorDao);
-    static TurmaView turmaView = new TurmaView();
+    static AtividadeView atividadeView = new AtividadeView(atividadeDaoImp);
+    static DisciplinaView disciplinaView = new DisciplinaView(disciplinaDaoImp);
+    static TurmaView turmaView = new TurmaView(turmaDaoImp);
     
 	public static Scanner getEntrada() {
 		return entrada;
@@ -57,12 +58,15 @@ public class MenuPrincipal {
 			System.out.println("9- Consultar situação do aluno em uma determinada disciplina");
 			System.out.println("10- Consultar numero de turmas ja oferecidas para uma determinada disciplina");
 			System.out.println("11- Consultar o numero de disciplina ja lecionadas por um determinado professor");
-			System.out.println("12- Sair");
+			System.out.println("13- Listar Alunos");
+                        System.out.println("14- Listar Disciplinas");
+                        System.out.println("15- Listar Professor");
+                        System.out.println("16- Sair");
 			
 			opcao = entrada.nextInt();
 			verificarOpcao(opcao);
 		
-		}while(opcao<=12);
+		}while(opcao<=16);
 	}
 	
 	private static void verificarOpcao(int opcao) throws IOException{
@@ -88,55 +92,54 @@ public class MenuPrincipal {
                         break;
 	
 		/*case 6:
-			System.out.println("Digite o codigo do Item: ");
-			long codigo2 = entrada.nextLong();
-			Item aux2 = itemDao.verificar(codigo2);
-			if(aux2 == null){
-				System.out.println("Item nao cadastrado!");
-			}
-			else{
-				System.out.println("Preco: "+ ((aux2.getPrecoCusto()+aux2.getPrecoCusto())*aux2.getMargemLucro()));
-			}
+			
 			
 			break;
 			
 		case 7:
-			clienteView.listarCliente();
+			
 			break;
 		
 		case 8:
-			fornecedorView.listarFornecedor();
+			
 			break;
 			
 		case 9:
-			pedidoView.listarPedido();
+			
 			break;
 			
 		case 10:
-			System.out.println("Digite o codigo do Item: ");
-			long codigo1 = entrada.nextLong();
-			Item aux1 = itemDao.verificar(codigo1);
-			if(aux1 == null){
-				System.out.println("Item nao cadastrado!");
-			}
-			System.out.println("Item: "+aux1.getNome());
-			System.out.println("Quantidade: "+aux1.getQuantEstoque());
+		
 			break;
 			
 		case 11:
-			itemView.listarItem();
-			break;
 			
-		case 12:
+			break;
+                case 12:
+			
+			break;
+                        */
+                case 13:
+			alunoView.listarAluno();
+			break;
+                case 14:
+			disciplinaView.listarDisciplina();
+			break;    
+                case 15:
+			professorView.listarProfessor();
+			break;	
+		case 16:
 			System.out.println("Saindo...");
-			clienteDao.salvar(clienteDao.getLista());
-			fornecedorDao.salvar(fornecedorDao.getLista());
-			itemDao.salvar(itemDao.getLista());
-			//pedidoDao.salvar(pedidoDao.getLista());
+			alunoDaoImp.salvar(alunoDaoImp.getLista());
+			professorDaoImp.salvar(professorDaoImp.getLista());
+			disciplinaDaoImp.salvar(disciplinaDaoImp.getLista());
+			turmaDaoImp.salvar(turmaDaoImp.getLista());
+                        atividadeDaoImp.salvar(atividadeDaoImp.getLista());
 			System.exit(0);
 			break;
 			
 		}
+        }
     
    
 }
