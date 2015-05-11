@@ -1,5 +1,5 @@
-/*
- package trabalhopoo.model.dao;
+
+package trabalhopoo.model.dao;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,11 +40,11 @@ public class TurmaDaoImp implements InterfaceTurmaDaoImp{
 		fr = new FileReader (arquivo);
 		br = new BufferedReader (fr);
 		while (br.ready()){
-			ano = br.readLine();
-			periodo = br.readLine();
+			ano = br.read();
+			periodo = br.read();
 			local = br.readLine();
 			horario = br.readLine();
-			numero_de_vagas = br.readLine();
+			numero_de_vagas = br.read();
 			inserir(ano, periodo, local, horario, numero_de_vagas);
 		}
 		br.close();
@@ -57,7 +57,8 @@ public class TurmaDaoImp implements InterfaceTurmaDaoImp{
 	}
         
         //insere as turmas na lista em execução        
-        public void inserir (int ano, int periodo, String local, String horario, int numero_de_vagas){
+        public void inserir (int ano, int periodo, String local, 
+                String horario, int numero_de_vagas){
 		turma = new Turma(ano, periodo, local, horario, numero_de_vagas);
 		lista.add(turma);
 	}
