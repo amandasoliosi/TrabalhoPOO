@@ -25,7 +25,7 @@ public class DisciplinaDaoImp {
     private ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
     private String nome;
     private String ementa;
-    private int cargaHoraria;
+    private String cargaHoraria;
     private Disciplina disciplina;
     
     private FileWriter fw;
@@ -54,7 +54,7 @@ public class DisciplinaDaoImp {
     public ArrayList<Disciplina> getLista() {
 		return lista;
     }
-     public Disciplina verificar (String cpf){//verifica se o nome da disciplina ja ta salvo na lista de disciplinas
+     public Disciplina verificar (String nome){//verifica se o nome da disciplina ja ta salvo na lista de disciplinas
         if (lista.isEmpty() == true) return null;
         it = lista.iterator(); 
 	while (it.hasNext()) {  
@@ -66,7 +66,7 @@ public class DisciplinaDaoImp {
 	return null;
     }
      
-     public void inserir(String nome, String ementa, int cargaHoraria){
+     public void inserir(String nome, String ementa, String cargaHoraria){
          disciplina = new Disciplina(nome, ementa, cargaHoraria);
          lista.add(disciplina);
      }

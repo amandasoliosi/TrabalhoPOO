@@ -10,6 +10,7 @@ package trabalhopoo.model.pojo;
  * @author Amanda
  */
 public class Professor {
+    
     private String nome;
     private String cpf;
     private String departamento;
@@ -40,6 +41,5 @@ public class Professor {
     public void setDepartamento(String departamento){
         this.departamento = departamento;
     }
-    
-    
 }
+    

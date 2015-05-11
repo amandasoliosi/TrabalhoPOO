@@ -5,12 +5,12 @@
  */
 package trabalhopoo.view;
 
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
-import trabalhopoo.model.dao.*;
+import java.util.Scanner;
+import trabalhopoo.model.dao.AlunoDaoImp;
+import trabalhopoo.model.dao.Verificacao;
 import trabalhopoo.model.pojo.Aluno;
-
 
 /**
  *
@@ -18,28 +18,27 @@ import trabalhopoo.model.pojo.Aluno;
  */
 public class AlunoView {
     private static Scanner entrada = new Scanner(System.in);
-    private AlunoDaoImp alunoDaoImp;
+	private AlunoDaoImp alunoDaoImp;
 	
-    public AlunoView (AlunoDaoImp alunoDaoImp){
-        this.alunoDaoImp = alunoDaoImp;
-    }
+	public AlunoView (AlunoDaoImp alunoDaoImp){
+		this.alunoDaoImp = alunoDaoImp;
+	}
 	
-    public static Scanner getEntrada() {
-        return entrada;
-    }
+	public static Scanner getEntrada() {
+		return entrada;
+	}
 
-    public static void setEntrada(Scanner entrada) {
-	AlunoView.entrada = entrada;
-    }
-    
-
-    public void cadastrarAluno(){
+	public static void setEntrada(Scanner entrada) {
+		AlunoView.entrada = entrada;
+	}
+        
+        public void cadastrarAluno(){
         Verificacao verificacao = new Verificacao();
         System.out.println("Cadastro de alunos");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
 	while (verificacao.verificarStringVazia(nome) || verificacao.verificarStringSoNumeros(nome)){
-		System.out.println("Nome do aluno nao aceito, digite o nome do aluno novamente: ");
+		System.out.println("Nome do aluno nao aceito, digite o nome o alunos novamente: ");
 		nome = entrada.nextLine();
 	}
         System.out.println("Digite o CPF: ");
@@ -48,13 +47,15 @@ public class AlunoView {
             System.out.println("CPF invalido, digite o CPF novamente: ");
 		cpf = entrada.nextLine();
 	}
-	if (AlunoDaoImp.verificar(cpf) != null){
-		System.out.println("Aluno ja estava cadastrado!");
+	if (alunoDaoImp.verificar(cpf) != null){
+		System.out.println("Aluno ja cadastrado!");
 		return;
 	}
         alunoDaoImp.inserir(nome, cpf);
-	return;	
-        dao.salvar(alunoDaoImp);
+        System.out.println("Aluno cadastrado com sucesso!");
+        return;	
+   
+     
     }
     
     public void listarAluno() {
@@ -75,4 +76,7 @@ public class AlunoView {
         System.out.println("Informe o cpf:");
         
     }
+    
+    
+   
 }

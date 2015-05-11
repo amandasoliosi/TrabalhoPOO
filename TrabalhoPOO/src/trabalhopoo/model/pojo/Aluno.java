@@ -5,22 +5,16 @@
  */
 package trabalhopoo.model.pojo;
 
-/**
- *
- * @author Amanda
- */
 public class Aluno {
     
     private String nome;
     private String cpf;
     
-    //Construtores
     public Aluno(String nome, String cpf){
         this.nome = nome;
         this.cpf = cpf;
     }
     
-    //Get e Set
     public String getNome(){
         return nome;
     }
@@ -33,5 +27,4 @@ public class Aluno {
     public void setCpf(String cpf){
         this.cpf = cpf;
     }
-    
 }

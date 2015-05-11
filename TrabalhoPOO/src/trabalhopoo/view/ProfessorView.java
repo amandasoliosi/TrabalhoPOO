@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package trabalhopoo.view;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.ProfessorDaoImp;
 import trabalhopoo.model.dao.Verificacao;
 import trabalhopoo.model.pojo.Professor;
-
 /**
  *
  * @author Amanda
  */
 public class ProfessorView {
+    
     private static Scanner entrada = new Scanner(System.in);
     private ProfessorDaoImp professorDaoImp;
 	
@@ -33,7 +32,7 @@ public class ProfessorView {
     }
     
 
-    public void cadastrarProfessor(){
+    public String cadastrarProfessor(){
         Verificacao verificacao = new Verificacao();
         System.out.println("Cadastro de professores");
         System.out.println("Informe o nome: ");
@@ -48,9 +47,9 @@ public class ProfessorView {
             System.out.println("CPF invalido, digite o CPF novamente: ");
 		cpf = entrada.nextLine();
 	}
-	if (ProfessorDaoImp.verificar(cpf) != null){
-		System.out.println("Professor ja cadastrado!");
-		return;
+	if (professorDaoImp.verificar(cpf) != null){
+            System.out.println("Professor ja cadastrado!");
+            return;
 	}
         System.out.println("Digite o departamento do professor: ");
             String departamento = entrada.nextLine();
@@ -59,11 +58,10 @@ public class ProfessorView {
 		departamento = entrada.nextLine();
             }
         professorDaoImp.inserir(nome, cpf, departamento);
-        return;	
-   
-        dao.salvar(professorDaoImp);
+        System.out.println("Professor casdrado com sucesso!");
+	return;	
     }
-    
+       
     public void listarAluno() {
 		Iterator<Professor> it;
 		ArrayList<Professor>listar = professorDaoImp.getLista(); 
@@ -82,5 +80,4 @@ public class ProfessorView {
         System.out.println("Informe o cpf:");
         
     }
-    
 }

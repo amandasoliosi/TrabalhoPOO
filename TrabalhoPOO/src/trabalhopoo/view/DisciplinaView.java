@@ -9,21 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-/**
- *
- * @author Amanda
- */
 import trabalhopoo.model.dao.*;
 import trabalhopoo.model.pojo.Disciplina;
-import trabalhopoo.model.pojo.Professor;
-import trabalhopoo.model.pojo.Item;
 
 public class DisciplinaView {
     private static Scanner entrada = new Scanner(System.in);
-    private DisciplinaDao disciplinaDao;
+    private DisciplinaDaoImp disciplinaDaoImp;
+        
 	
-    public DisciplinaView (DisciplinaDao disciplinaDao){
-	this.disciplinaDao = disciplinaDao;
+    public DisciplinaView (DisciplinaDaoImp disciplinaDaoImp){
+	this.disciplinaDaoImp = disciplinaDaoImp;
     }
 	
     public static Scanner getEntrada() {
@@ -43,9 +38,9 @@ public class DisciplinaView {
 			System.out.println("Nome da disciplina nao aceita, digite novamente o nome da Disciplina: ");
 			nome = entrada.nextLine();
 		}	
-		if (disciplinaDao.verificar(nome) != null){
+		if (disciplinaDaoImp.verificar(nome) != null){
 			System.out.println("Disciplina ja esta cadastrada!");
-			return(disciplinaDao.verificar(nome).getCodigo());
+			return(disciplinaDaoImp.verificar(nome));
 		}
 		System.out.println("Digite a ementa da Disciplina: ");
 		String ementa = entrada.nextLine();
@@ -54,31 +49,13 @@ public class DisciplinaView {
 			ementa = entrada.nextLine();
 		}
 		System.out.println("Digite a carga horária da Disciplina: ");
-		int cargaHoraria = entrada.nextLine();
-		while (verificacoes.verificarStringSoNumeros(telefone)){
-			System.out.println("Numero de telefone nao aceito, digite novamente: ");
-			telefone = entrada.nextLine();
+		String cargaHoraria = entrada.nextLine();
+                while (verificacoes.verificarStringVazia(cargaHoraria)){
+			System.out.println("Carga horaria nao aceita, digite novamente: ");
+			cargaHoraria = entrada.nextLine();
 		}
-		
-		long codigo = fornecedorDao.gerarCodigo();
-		fornecedorDao.inserir(nome, codigo, endereco, telefone);
-		System.out.println("Fornecedor cadastrado com sucesso!");
-		return codigo;		
+	
 	}
-	public void listarFornecedor(){
-		Iterator<Fornecedor> it;
-		ArrayList<Fornecedor>listar = fornecedorDao.getLista();
-		if (listar.isEmpty() == true) return;
-		it = listar.iterator();
-		while (it.hasNext()) {  
-			Fornecedor aux = it.next();  
-			System.out.println("Nome:"+aux.getNome());
-			System.out.println("Codigo:"+aux.getCodigo());
-			System.out.println("Endereco:"+aux.getEndereco());
-			System.out.println("Telefone:"+aux.getTelefone());
-		}
-		return;
-		
-	}
+
 }
 	
