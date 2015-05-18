@@ -13,7 +13,7 @@ import trabalhopoo.model.dao.Verificacao;
 import trabalhopoo.model.dao.DisciplinaDaoImp;
 import trabalhopoo.model.pojo.Disciplina;
 
-public class DisciplinaView {
+class DisciplinaView {
     private static Scanner entrada = new Scanner(System.in);
     private DisciplinaDaoImp disciplinaDaoImp;
         

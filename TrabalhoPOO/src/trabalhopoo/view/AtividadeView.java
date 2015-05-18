@@ -18,14 +18,14 @@ import trabalhopoo.model.pojo.Atividade;
  * @author Thiago
  */
 public class AtividadeView {
-    private static Scanner entrada = new Scanner(System.in);
+    private Scanner entrada = new Scanner(System.in);
 	private AtividadeDaoImp atividadeDaoImp;
 	
 	public AtividadeView (AtividadeDaoImp atividadeDaoImp){
 		this.atividadeDaoImp = atividadeDaoImp;
 	}
 	
-	public static Scanner getEntrada() {
+	public Scanner getEntrada() {
 		return entrada;
 	}
 

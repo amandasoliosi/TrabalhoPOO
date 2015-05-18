@@ -13,7 +13,7 @@ import trabalhopoo.model.pojo.Atividade;
  *
  * @author Thiago
  */
- interface InterfaceAtividadeDao {
+ interface AtividadeDao {
     
    ArrayList<Atividade> ler() throws IOException;
    Atividade verificar (String tipo);

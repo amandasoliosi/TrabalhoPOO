@@ -13,7 +13,7 @@ import trabalhopoo.model.pojo.Aluno;
  *
  * @author Amanda
  */
-public interface InterfaceAlunoDaoImp {
+public interface AlunoDao {
     ArrayList<Aluno> ler() throws IOException;
     Aluno verificar (String cpf);
     void inserir (String nome, String cpf);

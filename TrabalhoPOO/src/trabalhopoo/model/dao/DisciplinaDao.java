@@ -12,7 +12,7 @@ import trabalhopoo.model.pojo.Disciplina;
  *
  * @author Amanda
  */
-public interface InterfaceDisciplinaDao{
+public interface DisciplinaDao{
     ArrayList<Disciplina> ler() throws IOException;
     Disciplina verificar (String nome);
     void inserir (String nome, String ementa, int cargaHoraria);

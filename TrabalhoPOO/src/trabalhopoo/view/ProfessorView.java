@@ -49,7 +49,6 @@ public class ProfessorView {
 	}
 	if (professorDaoImp.verificar(cpf) != null){
             System.out.println("Professor ja cadastrado!");
-            return;
 	}
         System.out.println("Digite o departamento do professor: ");
             String departamento = entrada.nextLine();
@@ -59,7 +58,7 @@ public class ProfessorView {
             }
         professorDaoImp.inserir(nome, cpf, departamento);
         System.out.println("Professor casdrado com sucesso!");
-	return;	
+	
     }
        
     public void listarProfessor() {
