@@ -32,7 +32,7 @@ public class TurmaView {
     }
     
  
-    public void cadastrarTurma(){
+    public void cadastrarTurma(DisciplinaDaoImp disciplinaDaoImp, ProfessorDaoImp professorDaoImp){
         System.out.println("Cadastro de turmas");
         System.out.println("Informe o ano: ");
         int ano = entrada.nextInt();

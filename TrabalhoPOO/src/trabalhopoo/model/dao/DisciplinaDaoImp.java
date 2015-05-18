@@ -25,6 +25,7 @@ public class DisciplinaDaoImp {
     private ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
     private String nome;
     private String ementa;
+    private String codigo;
     private String cargaHoraria;
     private Disciplina disciplina;
     
@@ -44,8 +45,9 @@ public class DisciplinaDaoImp {
 		while (br.ready()){
 			nome = br.readLine();
 			ementa = br.readLine();
+                        codigo = br.readLine();
                         cargaHoraria = br.readLine();
-			inserir(nome, ementa, cargaHoraria);
+			inserir(nome, ementa, codigo, cargaHoraria);
 		}
 		br.close();
 		fr.close();
@@ -66,8 +68,8 @@ public class DisciplinaDaoImp {
 	return null;
     }
      
-     public void inserir(String nome, String ementa, String cargaHoraria){
-         disciplina = new Disciplina(nome, ementa, cargaHoraria);
+     public void inserir(String nome, String ementa, String codigo, String cargaHoraria){
+         disciplina = new Disciplina(nome, ementa, codigo, cargaHoraria);
          lista.add(disciplina);
      }
      public boolean salvar(Disciplina disciplina) throws IOException{
@@ -77,6 +79,8 @@ public class DisciplinaDaoImp {
 		bw.write(disciplina.getNome());
 		bw.newLine();
 		bw.write(disciplina.getEmenta());
+		bw.newLine();
+                bw.write(disciplina.getCodigo());
 		bw.newLine();
                 bw.write(disciplina.getCargaHoraria());
                 bw.newLine();
@@ -93,4 +97,13 @@ public class DisciplinaDaoImp {
 		}
 		return true;
 	}
+    public Disciplina pesquisarDisciplina (Disciplina disciplinaPes)
+    {
+        for(Disciplina disciplina : lista){
+            if(disciplinaPes.getCodigo().equals(disciplina.getCodigo())){
+                return disciplina;
+            }
+        }
+    return disciplinaPes;
+    }
 }

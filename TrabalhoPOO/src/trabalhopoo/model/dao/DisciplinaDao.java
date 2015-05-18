@@ -15,7 +15,7 @@ import trabalhopoo.model.pojo.Disciplina;
 public interface DisciplinaDao{
     ArrayList<Disciplina> ler() throws IOException;
     Disciplina verificar (String nome);
-    void inserir (String nome, String ementa, int cargaHoraria);
+    void inserir (String nome, String ementa, String codigo, String cargaHoraria);
     boolean salvar(Disciplina dsciplina) throws IOException; // salva no arquivo
     boolean salvar(ArrayList<Disciplina> lista) throws IOException; // salva no vetor	
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-import trabalhopoo.model.dao.Verificacao;
+import trabalhopoo.model.dao.VerificacaoDaoImp;
 import trabalhopoo.model.dao.DisciplinaDaoImp;
 import trabalhopoo.model.pojo.Disciplina;
 
@@ -32,7 +32,7 @@ class DisciplinaView {
 	
     public void cadastrarDisciplina() throws IOException{
 		//Verificacoes
-		Verificacao verificacoes = new Verificacao();
+		VerificacaoDaoImp verificacoes = new VerificacaoDaoImp();
 		System.out.println("Digite o nome da Disciplina: ");
 		String nome = entrada.nextLine();
 		while (verificacoes.verificarStringVazia(nome)){
@@ -49,14 +49,31 @@ class DisciplinaView {
 			System.out.println("Ementa nao aceita, digite novamente: ");
 			ementa = entrada.nextLine();
 		}
+                
+                System.out.println("Digite o codigo da Disciplina: ");
+		String codigo = entrada.nextLine();
+		while (verificacoes.verificarStringVazia(codigo)){
+			System.out.println("Codigo nao aceita, digite novamente: ");
+			ementa = entrada.nextLine();
+		}
+                
 		System.out.println("Digite a carga horária da Disciplina: ");
 		String cargaHoraria = entrada.nextLine();
                 while (verificacoes.verificarStringVazia(cargaHoraria)){
 			System.out.println("Carga horaria nao aceita, digite novamente: ");
 			cargaHoraria = entrada.nextLine();
 		}
-                disciplinaDaoImp.inserir(nome,ementa,cargaHoraria);
+                disciplinaDaoImp.inserir(nome,ementa, codigo, cargaHoraria);
                 return;
+    }
+     public boolean cosultarDisciplina(Disciplina disciplina){
+        Disciplina disciplinaPes = disciplinaDaoImp.pesquisarDisciplina(new Disciplina (null, null, disciplina.getCodigo(), null));
+        if(disciplinaPes.getNome() == null)
+        {
+            return false;
+        }
+       return true;
+        
     }
 
 }

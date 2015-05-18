@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.ProfessorDaoImp;
-import trabalhopoo.model.dao.Verificacao;
+import trabalhopoo.model.dao.VerificacaoDaoImp;
 import trabalhopoo.model.pojo.Professor;
 /**
  *
@@ -33,7 +33,7 @@ public class ProfessorView {
     
 
     public String cadastrarProfessor(){
-        Verificacao verificacao = new Verificacao();
+        VerificacaoDaoImp verificacao = new VerificacaoDaoImp();
         System.out.println("Cadastro de professores");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
@@ -58,7 +58,8 @@ public class ProfessorView {
             }
         professorDaoImp.inserir(nome, cpf, departamento);
         System.out.println("Professor casdrado com sucesso!");
-	
+        return null;
+
     }
        
     public void listarProfessor() {
@@ -73,6 +74,14 @@ public class ProfessorView {
 		}
 		return;
     }
-    
+    public boolean cosultarProfessor(Professor professor){
+        Professor professorPes = professorDaoImp.pesquisarProfessor(new Professor (null, professor.getCpf(), null));
+        if(professorPes.getNome() == null)
+        {
+            return false;
+        }
+       return true;
+        
+    }
 
 }

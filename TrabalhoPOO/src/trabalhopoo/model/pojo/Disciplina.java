@@ -12,11 +12,13 @@ package trabalhopoo.model.pojo;
 public class Disciplina {
     private String nome;
     private String ementa;
+    private String codigo;
     private String cargaHoraria;
 
-    public Disciplina(String nome, String ementa, String cargaHoraria) {
+    public Disciplina(String nome, String ementa, String codigo, String cargaHoraria) {
         this.nome = nome;
         this.ementa = ementa;
+        this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
     }
 
@@ -46,6 +48,19 @@ public class Disciplina {
      */
     public void setEmenta(String ementa) {
         this.ementa = ementa;
+    }
+     /**
+     * @return the ementa
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param ementa the ementa to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     /**

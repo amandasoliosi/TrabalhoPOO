@@ -10,7 +10,7 @@ import java.util.Iterator;
  *
  * @author Amanda
  */
-public class Verificacao {
+public class VerificacaoDaoImp {
     
     public boolean verificarStringVazia(String string){
 		if (string.isEmpty() || string.equals("")) return true;

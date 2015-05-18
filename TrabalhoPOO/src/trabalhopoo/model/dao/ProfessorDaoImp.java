@@ -97,4 +97,13 @@ public class ProfessorDaoImp {
 	}
 	return true;
     }
+      public Professor pesquisarProfessor (Professor professorPes)
+    {
+        for(Professor professor : lista){
+            if(professorPes.getCpf().equals(professor.getCpf())){
+                return professor;
+            }
+        }
+    return professorPes;
+    }
 }

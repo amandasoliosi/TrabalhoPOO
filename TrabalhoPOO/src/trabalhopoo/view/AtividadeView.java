@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.AtividadeDaoImp;
-import trabalhopoo.model.dao.Verificacao;
+import trabalhopoo.model.dao.VerificacaoDaoImp;
 import trabalhopoo.model.pojo.Atividade;
 
 /**
@@ -34,7 +34,7 @@ public class AtividadeView {
 	}
         
         public void cadastrarAtividade(){
-        Verificacao verificacao = new Verificacao();
+        VerificacaoDaoImp verificacao = new VerificacaoDaoImp();
         System.out.println("Cadastro de atividades");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();

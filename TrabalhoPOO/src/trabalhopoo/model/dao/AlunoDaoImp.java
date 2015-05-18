@@ -93,5 +93,13 @@ public class AlunoDaoImp{
 	}
 	return true;
     }
-            
+    public Aluno pesquisarAluno (Aluno alunoPes)
+    {
+        for(Aluno aluno : lista){
+            if(alunoPes.getCpf().equals(aluno.getCpf())){
+                return aluno;
+            }
+        }
+    return alunoPes;
+    }
 }

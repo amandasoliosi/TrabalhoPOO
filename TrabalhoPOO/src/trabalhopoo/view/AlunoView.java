@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.AlunoDaoImp;
-import trabalhopoo.model.dao.Verificacao;
+import trabalhopoo.model.dao.VerificacaoDaoImp;
 import trabalhopoo.model.pojo.Aluno;
 
 /**
@@ -33,7 +33,7 @@ public class AlunoView {
 	}
         
         public void cadastrarAluno(){
-        Verificacao verificacao = new Verificacao();
+        VerificacaoDaoImp verificacao = new VerificacaoDaoImp();
         System.out.println("Cadastro de alunos");
         System.out.println("Informe o nome: ");
         String nome = entrada.nextLine();
@@ -53,9 +53,8 @@ public class AlunoView {
 	}
         alunoDaoImp.inserir(nome, cpf);
         System.out.println("Aluno cadastrado com sucesso!");
-        return;	
    
-     
+     return;
     }
     
     public void listarAluno() {
@@ -71,9 +70,13 @@ public class AlunoView {
 		return;
     }
     
-    public void pesquisar(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Informe o cpf:");
+    public boolean cosultarAluno(Aluno aluno){
+        Aluno alunoPes = alunoDaoImp.pesquisarAluno(new Aluno (null, aluno.getCpf()));
+        if(alunoPes.getNome() == null)
+        {
+            return false;
+        }
+       return true;
         
     }
     
