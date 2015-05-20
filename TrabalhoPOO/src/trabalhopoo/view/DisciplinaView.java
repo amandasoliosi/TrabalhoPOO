@@ -14,7 +14,7 @@ import trabalhopoo.model.dao.DisciplinaDaoImp;
 import trabalhopoo.model.pojo.Disciplina;
 
 class DisciplinaView {
-    private static Scanner entrada = new Scanner(System.in);
+    private static  Scanner entrada = new Scanner(System.in);
     private DisciplinaDaoImp disciplinaDaoImp;
         
 	
@@ -26,7 +26,7 @@ class DisciplinaView {
            return entrada;
     }
 
-    public static void setEntrada(Scanner entrada) {
+    public void setEntrada(Scanner entrada) {
 	DisciplinaView.entrada = entrada;
     }
 	

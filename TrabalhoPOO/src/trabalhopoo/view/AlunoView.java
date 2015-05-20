@@ -28,7 +28,7 @@ public class AlunoView {
 		return entrada;
 	}
 
-	public static void setEntrada(Scanner entrada) {
+	public  void setEntrada(Scanner entrada) {
 		AlunoView.entrada = entrada;
 	}
         

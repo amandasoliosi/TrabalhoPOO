@@ -44,11 +44,11 @@ public class MenuPrincipal {
 		return entrada;
 	}
 
-	public static void setEntrada(Scanner entrada) {
+	public void setEntrada(Scanner entrada) {
 		MenuPrincipal.entrada = entrada;
 	}
 	
-	public static void main(String[] args) throws IOException{
+	public void main(String[] args) throws IOException{
 		int opcao = 0;
 		alunoDaoImp.ler();
 		atividadeDaoImp.ler();
@@ -80,7 +80,7 @@ public class MenuPrincipal {
 		}while(opcao<=16);
 	}
 	
-	private static void verificarOpcao(int opcao) throws IOException{
+	private void verificarOpcao(int opcao) throws IOException{
 		switch(opcao){
 		case 1: 
 			alunoView.cadastrarAluno();

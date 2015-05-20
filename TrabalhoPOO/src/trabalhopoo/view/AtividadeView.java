@@ -18,7 +18,7 @@ import trabalhopoo.model.pojo.Atividade;
  * @author Thiago
  */
 public class AtividadeView {
-    private Scanner entrada = new Scanner(System.in);
+    private static Scanner entrada = new Scanner(System.in);
 	private AtividadeDaoImp atividadeDaoImp;
 	
 	public AtividadeView (AtividadeDaoImp atividadeDaoImp){

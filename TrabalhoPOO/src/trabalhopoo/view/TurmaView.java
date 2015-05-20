@@ -27,12 +27,12 @@ public class TurmaView {
         return entrada;
     }
 
-    public static void setEntrada(Scanner entrada) {
+    public void setEntrada(Scanner entrada) {
 	TurmaView.entrada = entrada;
     }
     
  
-    public void cadastrarTurma(DisciplinaDaoImp disciplinaDaoImp, ProfessorDaoImp professorDaoImp){
+    public void cadastrarTurma(){
         System.out.println("Cadastro de turmas");
         System.out.println("Informe o ano: ");
         int ano = entrada.nextInt();
