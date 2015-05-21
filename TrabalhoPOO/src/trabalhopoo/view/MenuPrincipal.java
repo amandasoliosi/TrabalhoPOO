@@ -40,7 +40,7 @@ public class MenuPrincipal {
     static DisciplinaView disciplinaView = new DisciplinaView(disciplinaDaoImp);
     static TurmaView turmaView = new TurmaView(turmaDaoImp);
     
-	public static Scanner getEntrada() {
+	public  Scanner getEntrada() {
 		return entrada;
 	}
 

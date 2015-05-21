@@ -23,7 +23,7 @@ public class TurmaView {
         this.turmaDaoImp = turmaDaoImp;
     }
 	
-    public static Scanner getEntrada() {
+    public Scanner getEntrada() {
         return entrada;
     }
 

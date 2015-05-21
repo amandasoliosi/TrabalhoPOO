@@ -22,7 +22,7 @@ class DisciplinaView {
 	this.disciplinaDaoImp = disciplinaDaoImp;
     }
 	
-    public static Scanner getEntrada() {
+    public Scanner getEntrada() {
            return entrada;
     }
 

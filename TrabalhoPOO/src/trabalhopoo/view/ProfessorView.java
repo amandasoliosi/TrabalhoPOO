@@ -23,11 +23,11 @@ public class ProfessorView {
         this.professorDaoImp = professorDaoImp;
     }
 	
-    public static Scanner getEntrada() {
+    public Scanner getEntrada() {
         return entrada;
     }
 
-    public static void setEntrada(Scanner entrada) {
+    public void setEntrada(Scanner entrada) {
 	ProfessorView.entrada = entrada;
     }
     

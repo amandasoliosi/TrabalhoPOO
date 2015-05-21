@@ -24,7 +24,7 @@ public class AlunoView {
 		this.alunoDaoImp = alunoDaoImp;
 	}
 	
-	public static Scanner getEntrada() {
+	public Scanner getEntrada() {
 		return entrada;
 	}
 

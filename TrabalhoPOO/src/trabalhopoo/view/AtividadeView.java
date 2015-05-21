@@ -29,7 +29,7 @@ public class AtividadeView {
 		return entrada;
 	}
 
-	public static void setEntrada(Scanner entrada) {
+	public void setEntrada(Scanner entrada) {
 		AtividadeView.entrada = entrada;
 	}
         
