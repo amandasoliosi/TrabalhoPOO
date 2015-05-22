@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import trabalhopoo.model.pojo.Turma;
+import trabalhopoo.model.pojo.Disciplina;
+import trabalhopoo.model.pojo.Professor;
+
 
 /**
  *
@@ -16,7 +19,7 @@ import trabalhopoo.model.pojo.Turma;
  */
 
 //implementação da interface
-public class TurmaDaoImp implements InterfaceTurmaDaoImp{
+public class TurmaDaoImp implements TurmaDao{
         private File arquivo = new File("ListaTurma.txt");
 	private ArrayList<Turma> lista = new ArrayList<Turma>();
 	private int ano;
@@ -56,14 +59,31 @@ public class TurmaDaoImp implements InterfaceTurmaDaoImp{
 		return lista;
 	}
         
-        //insere as turmas na lista em execução        
-        public void inserir (int ano, int periodo, String local, 
-                String horario, int numero_de_vagas){
+        //insere as turmas na lista em execução e salva no arquivo    
+        public boolean inserir (int ano, int periodo, String local, 
+                String horario, int numero_de_vagas)throws IOException{
 		turma = new Turma(ano, periodo, local, horario, numero_de_vagas);
 		lista.add(turma);
+                if (turma == null) return false ;
+		fw = new FileWriter(arquivo, true);
+		bw = new BufferedWriter (fw);
+		bw.write(turma.getAno());
+		bw.newLine();
+		bw.write(turma.getPeriodo());
+		bw.newLine();
+		bw.write(turma.getLocal());
+		bw.newLine();
+		bw.write(turma.getHorario());
+		bw.newLine();
+		bw.write(turma.getNumero_de_vagas());
+		bw.newLine();		
+		bw.close();
+		fw.close();
+                return true;
 	}
         
-        //Salva um aluno no arquivo ListaAluno.
+        /*Salva um aluno no arquivo ListaAluno.
+        @Override
         public boolean salvar(Turma turma) throws IOException{
 		if (turma == null) return false;
 		fw = new FileWriter(arquivo, true);
@@ -81,7 +101,7 @@ public class TurmaDaoImp implements InterfaceTurmaDaoImp{
 		bw.close();
 		fw.close();
 		return true;
-	}
+	}*/
         //Salva as turmas da lista no arquivo
         public boolean salvar(ArrayList<Turma> lista) throws IOException{
 		if (lista.isEmpty() == true) return false;
@@ -92,4 +112,10 @@ public class TurmaDaoImp implements InterfaceTurmaDaoImp{
 		}
 		return true;
 	}
+
+    @Override
+    public boolean salvar(Turma turma) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
 }

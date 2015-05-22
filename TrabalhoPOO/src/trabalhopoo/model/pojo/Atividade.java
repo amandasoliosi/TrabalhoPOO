@@ -15,6 +15,8 @@ public class Atividade {
    private String tipo;
    private String data;
    private float valor;
+   private float nota;
+ 
 
     public Atividade(String nome, String tipo, String data, float valor) {
         this.nome = nome;

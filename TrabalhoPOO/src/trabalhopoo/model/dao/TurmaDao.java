@@ -13,10 +13,10 @@ import trabalhopoo.model.pojo.Turma;
  *
  * @author Klaus
  */
-interface InterfaceTurmaDaoImp {
+ interface TurmaDao {
     ArrayList<Turma> ler() throws IOException;
-    void inserir (int ano, int periodo, String local, 
-                String horario, int numero_de_vagas);
+    boolean inserir (int ano, int periodo, String local, 
+                String horario, int numero_de_vagas) throws IOException;
     boolean salvar(Turma turma) throws IOException; // salva no arquivo
     boolean salvar(ArrayList<Turma> lista) throws IOException; // salva no vetor	
 }

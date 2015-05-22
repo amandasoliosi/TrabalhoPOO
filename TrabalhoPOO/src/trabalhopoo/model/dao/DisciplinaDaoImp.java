@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import trabalhopoo.model.pojo.Turma;
 import trabalhopoo.model.pojo.Disciplina;
 import trabalhopoo.model.pojo.Professor;
 
@@ -47,7 +48,8 @@ public class DisciplinaDaoImp {
 			ementa = br.readLine();
                         codigo = br.readLine();
                         cargaHoraria = br.readLine();
-			inserir(nome, ementa, codigo, cargaHoraria);
+                        verificar(nome);
+			
 		}
 		br.close();
 		fr.close();
@@ -65,13 +67,12 @@ public class DisciplinaDaoImp {
                 return aux;
             }  
 	}
+        disciplina = new Disciplina(nome,ementa, codigo, cargaHoraria);
+        lista.add(disciplina);
 	return null;
     }
      
-     public void inserir(String nome, String ementa, String codigo, String cargaHoraria){
-         disciplina = new Disciplina(nome, ementa, codigo, cargaHoraria);
-         lista.add(disciplina);
-     }
+
      public boolean salvar(Disciplina disciplina) throws IOException{
 		if (disciplina == null) return false;
 		fw = new FileWriter(arquivo, true);
@@ -87,7 +88,7 @@ public class DisciplinaDaoImp {
 		bw.close();
 		fw.close();
 		return true;
-	}
+	/*
      public boolean salvar(ArrayList<Disciplina> lista) throws IOException{//Pega as disciplinas da lista e vai salvando no arquivo
 		if (lista.isEmpty() == true) return false;
 		fw = new FileWriter(arquivo);
@@ -96,6 +97,24 @@ public class DisciplinaDaoImp {
 			salvar(it.next());
 		}
 		return true;
+	}*/
+     public boolean inserir(String nome, String ementa, String codigo, String cargaHoraria) throws IOException{
+		disciplina = new Disciplina(nome, ementa, codigo, cargaHoraria);
+		lista.add(disciplina);
+                if (disciplina == null) return false ;
+		fw = new FileWriter(arquivo, true);
+		bw = new BufferedWriter (fw);
+		bw.write(disciplina.getNome());
+		bw.newLine();
+		bw.write(disciplina.getEmenta());
+		bw.newLine();
+		bw.write(disciplina.getCodigo());
+		bw.newLine();
+		bw.write(disciplina.getCargaHoraria());
+		bw.newLine();	
+		bw.close();
+		fw.close();
+                return true;
 	}
     public Disciplina pesquisarDisciplina (Disciplina disciplinaPes)
     {
@@ -106,4 +125,5 @@ public class DisciplinaDaoImp {
         }
     return disciplinaPes;
     }
+    
 }

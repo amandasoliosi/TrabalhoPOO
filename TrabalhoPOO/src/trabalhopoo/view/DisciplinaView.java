@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import trabalhopoo.model.dao.VerificacaoDaoImp;
 import trabalhopoo.model.dao.DisciplinaDaoImp;
+import trabalhopoo.model.dao.DisciplinaDao;
 import trabalhopoo.model.pojo.Disciplina;
 
 class DisciplinaView {
@@ -63,7 +64,7 @@ class DisciplinaView {
 			System.out.println("Carga horaria nao aceita, digite novamente: ");
 			cargaHoraria = entrada.nextLine();
 		}
-                disciplinaDaoImp.inserir(nome,ementa, codigo, cargaHoraria);
+                disciplinaDaoImp.salvar(nome,ementa, codigo, cargaHoraria);
                 return;
     }
      public boolean cosultarDisciplina(Disciplina disciplina){

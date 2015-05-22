@@ -32,7 +32,7 @@ public class TurmaView {
     }
     
  
-    public void cadastrarTurma(){
+    public void cadastrarTurma() throws IOException{
         System.out.println("Cadastro de turmas");
         System.out.println("Informe o ano: ");
         int ano = entrada.nextInt();
@@ -70,8 +70,8 @@ public class TurmaView {
         turmaDaoImp.inserir(ano, periodo, local, horario, numero_de_vagas);
 	return;	
     }
-    
-      public void listarAtividades() {
+
+      public void listarTurma() {
 		Iterator<Turma> it;
 		ArrayList<Turma>listar = turmaDaoImp.getLista(); 
 		if (listar.isEmpty() == true) return;

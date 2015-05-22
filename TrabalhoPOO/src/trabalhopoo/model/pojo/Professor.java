@@ -15,7 +15,8 @@ public class Professor {
     private String cpf;
     private String departamento;
     
-    public Professor(String nome, String cpf, String departamento){
+    
+    public Professor(String nome, String departamento, String cpf){
         this.nome = nome;
         this.cpf = cpf;
         this.departamento = departamento;

@@ -1,5 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
+/////////////////*
+ /* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import trabalhopoo.model.pojo.Professor;
+import trabalhopoo.model.pojo.Disciplina;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ProfessorDaoImp {
     private String cpf;
     private String departamento;
     private Professor professor;
+    private Disciplina disciplina;
 
     private FileWriter fw;
     private BufferedWriter bw;
@@ -44,7 +46,7 @@ public class ProfessorDaoImp {
 			nome = br.readLine();
 			cpf = br.readLine();
                         departamento = br.readLine();
-			inserir(nome, cpf, departamento);
+		
 		}
 		br.close();
 		fr.close();
